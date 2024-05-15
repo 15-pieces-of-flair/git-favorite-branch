@@ -75,11 +75,12 @@ echo "DIST_FILENAME=${build_basename}.tar.gz" >>$GITHUB_OUTPUT
 echo "DIST_PATH=${build_path}/${build_basename}.tar.gz" >>$GITHUB_OUTPUT
 
 # Push these changes to main
+git checkout main
 git config user.name "Revent Studio Github Bot"
 git config user.email bot@revent.studio
-git commit -am "Bumping version to v${tag_version}"
-git push origin main
+git commit -am "🍄 Bumping version to v${tag_version}"
+git push origin HEAD:main
 
 # Tag the binary as a new version
 git tag "${build_version}"
-git push origin main --tags
+git push origin HEAD:main --tags
